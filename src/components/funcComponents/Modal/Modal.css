@@ -1,13 +1,27 @@
+.modal-base__container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: 0;
+  margin-left: -35vw;
+  margin-top: -35vh;
+  width: 70vw;
+  height: 70vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .modal-base {
   width: max-content;
   height: max-content;
-  padding: 8px;
-  margin: 0;
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  padding: 10px;
+
   color: black;
-  background-color: aquamarine;
+  background-color: inherit;
+  border: 1px solid cadetblue;
+
   display: flex;
   flex-direction: column;
   align-items: center;

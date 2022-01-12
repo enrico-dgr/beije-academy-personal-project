@@ -1,0 +1,9 @@
+.todo-list__remove-button__modal__text {
+  width: 120px;
+}
+
+.todo-list__remove-button__modal__buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
