@@ -3,6 +3,7 @@ import "./Home.css";
 import { Navigate, Outlet } from "react-router-dom";
 
 import { Component } from "react";
+import NavBar from "../components/funcComponents/NavBar";
 
 class Home extends Component {
 	constructor(props) {
@@ -28,14 +29,19 @@ class Home extends Component {
 	render() {
 		return (
 			<div className={"home"}>
-				<div className={"base-nav"}>
-					<div onClick={this.goTo("todo-list")}>
-						<span>ToDo list</span>
-					</div>
-					<div onClick={this.goTo("auth")}>
-						<span>Login</span>
-					</div>
-				</div>
+				<NavBar
+					classNameLinkDiv={"home__nav-link"}
+					paths={[
+						{
+							value: "todo-list",
+							name: "ToDo-List",
+						},
+						{
+							value: "auth",
+							name: "Login",
+						},
+					]}
+				/>
 				{this.state.subRoute !== this.nullPath && (
 					<Navigate to={this.state.subRoute} />
 				)}

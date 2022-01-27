@@ -1,24 +1,27 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import NavBar from "../components/funcComponents/NavBar";
+import { Outlet } from "react-router-dom";
 
 const Auth = () => {
-	const navigate = useNavigate();
-
-	const goTo = (subRoute) => () => {
-		navigate(subRoute);
-	};
-
 	return (
 		<div className={"auth"}>
+			<NavBar
+				paths={[
+					{
+						value: "/",
+						name: "Home",
+					},
+					{
+						value: "registration",
+						name: "Registration",
+					},
+					{
+						value: "",
+						name: "Login",
+					},
+				]}
+			/>
 			<div>
 				<Outlet />
-			</div>
-			<div className={"base-nav"}>
-				<div onClick={goTo("registration")}>
-					<span>Registration</span>
-				</div>
-				<div onClick={goTo("login")}>
-					<span>Login</span>
-				</div>
 			</div>
 		</div>
 	);
