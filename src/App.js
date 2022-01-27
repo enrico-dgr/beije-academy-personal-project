@@ -1,30 +1,25 @@
 import "./App.css";
 
-import TodoList from "./screens/TodoList/TodoList";
+import { Route, Routes } from "react-router-dom";
+
+import Auth from "./screens/Auth";
+import Home from "./screens/Home";
+import Login from "./screens/auth/Login";
+import Registration from "./screens/auth/Registration";
+import TodoList from "./screens/home/TodoList/TodoList";
 
 function App() {
-    return (
-        <div className="App">
-            <section
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                }}
-            >
-                <h1
-                    style={{
-                        fontSize: 50,
-                    }}
-                >
-                    T0D0{" "}
-                    <p style={{ display: "inline", color: "purple" }}>LIST</p>
-                </h1>
-                <TodoList />
-            </section>
-        </div>
-    );
+	return (
+		<Routes>
+			<Route path="/" element={<Home />}>
+				<Route path="todo-list" element={<TodoList />} />
+			</Route>
+			<Route path="auth" element={<Auth />}>
+				<Route path="registration" element={<Registration />} />
+				<Route path="login" element={<Login />} />
+			</Route>
+		</Routes>
+	);
 }
 
 export default App;
