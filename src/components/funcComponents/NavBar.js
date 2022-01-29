@@ -10,9 +10,31 @@ import { useNavigate } from "react-router-dom";
  * Given an array of `path` objects ( the `props.paths` )
  * with keys `value` and `name`, a list of pseudo-buttons
  * will be rendered for navigation.
+ *
+ * **Style**
+ *
  * You can choose to specify also some `className` for
  * the external `div`, the internal `div`s ( pseudo-buttons )
  * or `span`s ( the pseudo-button's text ).
+ * This `className` can be generic if given as `props.<class>`,
+ * or specific of the path through `props.paths[i].<class>`.
+ *
+ * List of keys for `className`s:
+ * - classNameNavBar
+ * - classNameLinkDiv
+ * - classNameLinkSpan
+ *
+ * @example
+ * <NavBar
+ *  classNameLinkDiv="generic-class-for-div-button"
+ *  paths={[
+ *  {
+ *   value: "/home",
+ *   name: "Home"
+ *   classNameLinkDiv: "specific-class-for-div-button"
+ *  }
+ * ]}
+ * />
  */
 const NavBar = (props) => {
 	const navigate = useNavigate();
@@ -46,7 +68,7 @@ const MapToLink =
 	(path, i) =>
 		(
 			<div
-				className={`base-nav__link ${classNameLinkDiv}`}
+				className={`base-nav__link ${classNameLinkDiv} ${path.classNameLinkDiv}`}
 				key={
 					"base-nav__links-list" +
 					i +
@@ -56,7 +78,11 @@ const MapToLink =
 				// what actually makes this pseudo-button a router-link.
 				onClick={navigateTo(path.value)}
 			>
-				<span className={classNameLinkSpan}>{path.name}</span>
+				<span
+					className={`${classNameLinkSpan} ${path.classNameLinkSpan}`}
+				>
+					{path.name}
+				</span>
 			</div>
 		);
 

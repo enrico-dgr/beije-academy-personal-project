@@ -1,12 +1,16 @@
-import "./App.css";
+import "./Routing.css";
 
 import { Route, Routes } from "react-router-dom";
 
 import Auth from "./screens/Auth";
 import Home from "./screens/Home";
 import Login from "./screens/auth/Login";
+import { Provider } from "react-redux";
+import RedirectUser from "./components/funcComponents/RedirectUser";
 import Registration from "./screens/auth/Registration";
 import TodoList from "./screens/home/TodoList/TodoList";
+import Welcome from "./screens/Welcome";
+import applicationStore from "./applicationStore";
 
 /**
  * ABOUT ROUTING
@@ -33,18 +37,25 @@ import TodoList from "./screens/home/TodoList/TodoList";
  */
 
 /** */
-function App() {
+function Routing() {
 	return (
-		<Routes>
-			<Route path="" element={<Home />}>
-				<Route path="todo-list" element={<TodoList />} />
-			</Route>
-			<Route path="auth" element={<Auth />}>
-				<Route path="" element={<Login />} />
-				<Route path="registration" element={<Registration />} />
-			</Route>
-		</Routes>
+		<Provider store={applicationStore}>
+			<RedirectUser />
+			<Routes>
+				<Route path="" element={<Welcome />} />
+				<Route path="home" element={<Home />}>
+					<Route path="todo-list" element={<TodoList />} />
+				</Route>
+				<Route path="auth" element={<Auth />}>
+					<Route path="" element={<Login />} />
+					<Route
+						path="registration"
+						element={<Registration />}
+					/>
+				</Route>
+			</Routes>
+		</Provider>
 	);
 }
 
-export default App;
+export default Routing;

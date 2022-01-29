@@ -1,25 +1,10 @@
-import NavBar from "../components/funcComponents/NavBar";
+import NavBarGuest from "../components/funcComponents/NavBarGuest";
 import { Outlet } from "react-router-dom";
 
 const Auth = () => {
 	return (
 		<div className={"auth"}>
-			<NavBar
-				paths={[
-					{
-						value: "/",
-						name: "Home",
-					},
-					{
-						value: "registration",
-						name: "Registration",
-					},
-					{
-						value: "",
-						name: "Login",
-					},
-				]}
-			/>
+			<NavBarGuest />
 			<div>
 				<Outlet />
 			</div>
