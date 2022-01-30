@@ -1,0 +1,25 @@
+.registration-form-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 600px;
+}
+
+.registration-form {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 200px;
+}
+
+.registration-form__input {
+	padding: 8px 12px;
+	margin: 6px 0 !important ;
+}
+
+.registration-form__submit {
+	padding: 8px 12px;
+	margin: 10px 0 0 0;
+	width: 120px;
+}

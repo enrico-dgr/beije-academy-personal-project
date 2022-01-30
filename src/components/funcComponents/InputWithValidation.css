@@ -1,0 +1,32 @@
+.input-with-validation__container {
+	position: relative;
+}
+
+.input-with-validation {
+	padding: 8px 16px;
+}
+
+.input-with-validation--error {
+	background-color: rgba(255, 0, 0, 0.589);
+	border-color: red;
+}
+
+.input-with-validation__label {
+	background-color: transparent;
+	color: gray;
+	height: 100%;
+	left: 0;
+	min-height: 100%;
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	width: 100%;
+}
+
+.input-with-validation:focus ~ .input-with-validation__label {
+	opacity: 0;
+}
+
+.input-with-validation__label--not-empty {
+	opacity: 0;
+}

@@ -25,10 +25,10 @@ const setUsers = (users) => {
 };
 
 /**
- * If email is not used, save user in db and *return* `res = {}`,
+ * Save user in db and *return* `res = { errorMessage: undefined }` on success,
  * otherwise *return* a `res = { errorMessage: '' }`
  */
-const addUser = (user) => {
+const registerUser = (user) => {
 	let users = getUsers();
 
 	let res = {
@@ -49,6 +49,7 @@ const addUser = (user) => {
 };
 
 /**
+ * **User authentication**
  * If email and/or password are wrong, *return* a `res = { errorMessage: '' }`,
  * otherwise *return* a `res = { user: { ... } }`
  */
@@ -76,4 +77,6 @@ const authUser = ({ email, psw }) => {
 	return res;
 };
 
-export { addUser, authUser };
+const users = { registerUser, authUser };
+
+export default users;

@@ -2,7 +2,7 @@ import { decrypt, encrypt } from "crypto-js/aes";
 
 import { enc } from "crypto-js";
 
-const S = "a;osudhbn;as/ijdasihdasni;xocikmnas;/icj;asncasncas";
+const S = "aosudhbnasijdasihdasnixocikmnasicjasncasncas";
 
 const encryptText = (text) => encrypt(text, S).toString();
 
